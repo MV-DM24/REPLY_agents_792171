@@ -2,6 +2,7 @@
 import streamlit as st
 import os
 import sys
+import json
 
 # Dynamically determine project root and add to sys.path
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__)))
@@ -57,7 +58,19 @@ if query:
         initial_task=initial_task,
         verbose=1,
     )
-    # 6. Run the crew and display the results
+
     st.write("Running the crew...")
     crew_result = crew.kickoff()
-    st.write(f"Crew Result: {crew_result}")
+
+    # 7. Handle Visualizations and Text
+    try:
+        # Attempt to parse the crew result as JSON (Plotly)
+        plotly_json = json.loads(crew_result)
+        st.plotly_chart(plotly_json)
+    except json.JSONDecodeError:
+        try:
+            # Try to treat it as a matplotlib object
+            st.pyplot(crew_result)  # Display Matplotlib figure
+        except Exception as e:
+            # If still fails, treat it as regular text
+            st.write(f"Crew Result: {crew_result}")

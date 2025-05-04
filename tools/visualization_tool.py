@@ -1,3 +1,4 @@
+#tools/visualization_tool.py
 from crewai.tools import BaseTool
 from typing import Type, Any, Dict, List, Optional
 import io
@@ -5,8 +6,9 @@ import contextlib
 import json
 import difflib
 import os
+import base64
 
-AVAILABLE_DATA_PATHS = os.getenv("AVAILABLE_DATA_PATHS", "").split(",") 
+AVAILABLE_DATA_PATHS = os.getenv("AVAILABLE_DATA_PATHS", "").split(",")  
 
 class DataVisualizationTool(BaseTool):
     name: str = "Python Visualization Executor"
@@ -26,7 +28,7 @@ class DataVisualizationTool(BaseTool):
             import difflib
             import io
             import contextlib
-            from utils.config import config # Import config
+            from utils.config import config  # Import config
 
             # Add column matching function
             def match_column_name(df, requested_col):
@@ -125,7 +127,7 @@ class DataVisualizationTool(BaseTool):
                 'px': px,
                 'go': go,
                 'make_subplots': make_subplots,
-                'AVAILABLE_DATA_PATHS': config.AVAILABLE_DATA_PATHS, #Access from config
+                'AVAILABLE_DATA_PATHS': config.AVAILABLE_DATA_PATHS,  # Access from config
                 # Add helper visualization functions
                 'create_interactive_bar': create_interactive_bar,
                 'create_interactive_pie': create_interactive_pie,
@@ -140,15 +142,26 @@ class DataVisualizationTool(BaseTool):
 
             # Execute the code
             output_buffer = io.StringIO()
-            with contextlib.redirect_stdout(output_buffer):\
+            with contextlib.redirect_stdout(output_buffer):
                 exec(code, local_namespace)
+
             output = output_buffer.getvalue()
 
             # If there's a return_value variable in the code's namespace, return it
             if 'return_value' in local_namespace:
                 result = local_namespace['return_value']
-                # this converts it to json
-                return output + "\n" + plotly_to_json(result)
+                if isinstance(result, plt.Figure):  #Detect matplot lib
+                    # Save Matplotlib figure to a buffer
+                    buf = io.BytesIO()
+                    result.savefig(buf, format="png")
+                    data = base64.b64encode(buf.getbuffer()).decode("ascii")
+                    plt.close(result)  # Prevent display issues
+                    return f"MATPLOTLIB_IMAGE:{data}"#returns flag that matplot has ran
+                elif hasattr(result, 'to_dict'): #is instance of Plotly, go or other object with to_dict
+                    return plotly_to_json(result)
+                else:
+                    return str(result) #Handle basic strings
+
             else:
                 return output or "Code executed successfully, but no output was produced."
 
