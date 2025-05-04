@@ -1,10 +1,12 @@
-from utils.config import config
 from crewai.tools import BaseTool
 from typing import Type, Any, Dict, List, Optional
 import io
 import contextlib
 import json
 import difflib
+import os
+
+AVAILABLE_DATA_PATHS = os.getenv("AVAILABLE_DATA_PATHS", "").split(",") 
 
 class DataVisualizationTool(BaseTool):
     name: str = "Python Visualization Executor"
@@ -138,14 +140,15 @@ class DataVisualizationTool(BaseTool):
 
             # Execute the code
             output_buffer = io.StringIO()
-            with contextlib.redirect_stdout(output_buffer):
+            with contextlib.redirect_stdout(output_buffer):\
                 exec(code, local_namespace)
             output = output_buffer.getvalue()
 
             # If there's a return_value variable in the code's namespace, return it
             if 'return_value' in local_namespace:
                 result = local_namespace['return_value']
-                return output + "\n" + str(result)
+                # this converts it to json
+                return output + "\n" + plotly_to_json(result)
             else:
                 return output or "Code executed successfully, but no output was produced."
 

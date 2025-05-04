@@ -13,7 +13,9 @@ def create_analyst_task(query):
 You MUST start by inspecting all of the datasets to identify which ones could contain the necessary information.
 You MUST inspect the columns and sample data (e.g., using df.columns, df.head(), df.info())
 of potentially relevant files to determine where the necessary information resides.
-3. Understand whether the data is expressed as a category or numberic value.
+3. Understand whether the data is expressed as a category or numberic value, and remember that relevant info may be contained
+in columns that don't have the exact name of what you are looking for. If needed, check the column names and if they may contain relevant information to the analysis.
+If the data is numeric, check the data type and the range of values.
 If the data is categorical, identify the categories and their meanings.
 If the available info is available in one dataset, you can use only that one. However, if the required data is spread across multiple files, use all of them and
 formulate and execute a plan to merge them using appropriate keys.
