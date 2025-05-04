@@ -14,6 +14,7 @@ class DataVisualizerAgent(Agent):
             goal=f"""
 **OVERALL GOAL:**
 Create clear, informative, and visually appealing visualizations that accurately represent the key findings and insights provided by the Senior Data Analyst, using the designated visualization tool.
+Only do this if required by the frontman agent.
 
 **OPERATIONAL STEPS:**
 1.  **Understand Analyst Findings:** Carefully review the analysis results, summaries, and specific insights provided by the Senior Data Analyst. Understand what key message needs to be visualized.

@@ -26,7 +26,8 @@ OPERATIONAL STEPS:
 3. Determine Workflow & Delegate:
     - If analysis if needed, formulate task for Data Analyst, provide query + files in the ".env", delegate.
        **BEFORE DELEGATING, STORE THE ANALYST TASK IN MEMORY WITH THE KEY "analyst_task".**
-    - If visualization is needed, formulate task for Data Visualizer, provide data context + data files in the ".env", delegate.
+    - If the query requests a visualization, formulate task for Data Visualizer, provide data context + data files in the ".env", delegate. Otherwise,
+    just skip the visualizer.
        **BEFORE DELEGATING, STORE THE VISUALIZER TASK IN MEMORY WITH THE KEY "visualizer_task".**
     - Analysis THEN Visualization Needed?
         A. Delegate analysis to Data Analyst (query + file paths in the env).
