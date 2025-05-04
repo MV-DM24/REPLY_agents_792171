@@ -3,7 +3,7 @@ from crewai import Agent
 from utils.config import config
 from tools.visualization_tool import visualization_tool
 from langchain_community.chat_models import ChatLiteLLM
-
+AVAILABLE_DATA_PATHS = config.AVAILABLE_DATA_PATHS
 
 class DataVisualizerAgent(Agent):
     def __init__(self, llm=None, verbose=True):
