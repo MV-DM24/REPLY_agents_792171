@@ -16,6 +16,8 @@ class DataAnalysisTool(BaseTool):
         try:
             import pandas as pd
             import numpy as np
+            import sklearn as sk
+            import scipy as sp
             import io
             import contextlib
             from utils.config import config 
@@ -23,6 +25,8 @@ class DataAnalysisTool(BaseTool):
             local_namespace = {
                 'pd': pd,
                 'np': np,
+                'sk': sk,
+                'sp': sp,
                 'AVAILABLE_DATA_PATHS': config.AVAILABLE_DATA_PATHS 
             }
 
