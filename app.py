@@ -52,10 +52,10 @@ if query:
     visualizer_task.agent = visualizer_agent
 
     crew = Crew(
-        agents=[analyst_agent, visualizer_agent],
-        tasks=[ analyst_task, visualizer_task],
+        agents=[ analyst_agent, visualizer_agent],
+        tasks=[analyst_task, visualizer_task],
         process = Process.hierarchical,
-        manager_agent = frontman_agent,
+        manager_agent= frontman_agent,
         initial_task=initial_task,
         verbose=1,
     )

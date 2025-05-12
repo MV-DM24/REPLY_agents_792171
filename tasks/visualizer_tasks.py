@@ -10,30 +10,23 @@ AVAILABLE_DATA_PATHS = config.AVAILABLE_DATA_PATHS
 def create_visualization_task(query,):
     return Task(
         description=f"""
-        ONLY activated IF the user ask for a visualization.
-        Create visualizations using python libraries based on the analysis of the query:
-        
-        Query: {query}
-        
-        Based on the analysis results from the data analyst, write and execute Python code that creates visualizations of the data analyst agent analysis.
-        The code should:
-        1. Look at the analyst agent reasoning and load relevant data from one of these file paths: {AVAILABLE_DATA_PATHS}
-        2. Process the data according to the analysis already executed or use the processed data from the analysis
-        3. Create visualizations using only available columns that best match the analysis results, think about it
-        4. If exact data is not available, create a visualization based on the key insights from the analysis
-        5. Display the visualizations
-        
-        IMPORTANT RULES:
-        - ONLY output visualizations of data.
-        - Examine datasets to find columns that match concepts in the analysis
-        - If no dataset contains the necessary data, create a visualization based on the analysis text itself
-        - process the data through simple operations (e.g., groupby, sum, mean) to create the visualization
-        - Use the 'Python Visualization Executor' tool for all data visualization
-        
-        If you don't find matching columns, you MUST use columns already present in the datasets that best match the task.
-        Don't be space or case sensitive, reason about the BEST match.
-        """,
-        expected_output="""Visually-appealing graphs representing the results of relevant analysis, 
-        created using Python libraries (e.g., Plotly), based on columns that best match the users query.""",
+ONLY activated IF the user asks for a visualization AND there is data to generate.
+Create a clear, single visualization to answer the user's query, using the 'Python Visualization Executor' tool and based on the analyst results (if any).
+
+Steps:
+1. Understand the User's Request: Carefully review the original user query to identify the PRIMARY information need.
+2. Analyze Available Data:
+    - If the Analyst provides data, determine the BEST columns related to the user's request.
+    - Prioritize readily available, processed data from the analyst. Load the data with Pandas.
+    - If there is no data, clearly say that a visualization cannot be performed.
+3. Visualization Design & Code:
+    - Choose the single most appropriate and available chart type and always provide chart title and axises label.
+    - Create code to answer the user's question.
+4. Final Result:
+    - Always return code which allows a graph, or a clearly explained reason why no graph could be created, it must make a choice.
+""",
+expected_output="""
+A single, visually-appealing graph representing the results of relevant analysis, created using Python libraries (e.g., Plotly or Matplotlib), using data. If not, a simple reason.
+""",
         tools = [visualization_tool]
     )
