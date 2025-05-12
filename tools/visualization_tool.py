@@ -147,32 +147,93 @@ class DataVisualizationTool(BaseTool):
 
             output = output_buffer.getvalue()
 
-            # If there's a return_value variable in the code's namespace, return it
+            # Priority output handling for visualization results
+            # First check for structured JSON output for our Pydantic model
+            if 'visualization_result' in local_namespace:
+                return json.dumps(local_namespace['visualization_result'])
+            
+            # Then check for return_value
             if 'return_value' in local_namespace:
                 result = local_namespace['return_value']
-                if isinstance(result, plt.Figure):  #Detect matplot lib
-                    # Save Matplotlib figure to a buffer
-                    buf = io.BytesIO()
-                    result.savefig(buf, format="png")
-                    data = base64.b64encode(buf.getbuffer()).decode("ascii")
+                
+                # Handle matplotlib figures
+                if isinstance(result, plt.Figure):
+                    # Save Matplotlib figure to a file
+                    output_dir = os.path.join(os.getcwd(), 'outputs', 'visualizations')
+                    os.makedirs(output_dir, exist_ok=True)
+                    file_path = os.path.join(output_dir, "plot.png")
+                    result.savefig(file_path, format="png")
                     plt.close(result)  # Prevent display issues
-                    return f"MATPLOTLIB_IMAGE:{data}"#returns flag that matplot has ran
-                elif hasattr(result, 'to_dict'): #is instance of Plotly, go or other object with to_dict
-                    return plotly_to_json(result)
+                    
+                    # Format result for the VisualizationOutput Pydantic model
+                    return json.dumps({
+                        "chart_type": "Matplotlib Figure",
+                        "visualization_data": {},
+                        "description": "Matplotlib visualization",
+                        "plot_path": file_path
+                    })
+                
+                # Handle Plotly figures
+                elif hasattr(result, 'to_dict'):
+                    # Save Plotly figure to a file
+                    output_dir = os.path.join(os.getcwd(), 'outputs', 'visualizations')
+                    os.makedirs(output_dir, exist_ok=True)
+                    file_path = os.path.join(output_dir, "plot.html")
+                    
+                    if hasattr(result, 'write_html'):
+                        result.write_html(file_path)
+                    
+                    # Extract some data from the figure for the visualization_data field
+                    fig_data = result.to_dict()
+                    data_extract = {}
+                    if 'data' in fig_data and isinstance(fig_data['data'], list):
+                        for i, trace in enumerate(fig_data['data']):
+                            if 'name' in trace:
+                                trace_name = trace['name']
+                            else:
+                                trace_name = f"Trace {i+1}"
+                            
+                            # Extract x and y values if present
+                            x_values = trace.get('x', [])
+                            y_values = trace.get('y', [])
+                            data_extract[trace_name] = {"x_values": x_values, "y_values": y_values}
+                    
+                    # Get title if available
+                    chart_title = "Interactive Visualization"
+                    if 'layout' in fig_data and 'title' in fig_data['layout']:
+                        if isinstance(fig_data['layout']['title'], dict) and 'text' in fig_data['layout']['title']:
+                            chart_title = fig_data['layout']['title']['text']
+                        elif isinstance(fig_data['layout']['title'], str):
+                            chart_title = fig_data['layout']['title']
+                    
+                    # Format result for the VisualizationOutput Pydantic model
+                    chart_type = "Plotly " + (fig_data.get('data', [{}])[0].get('type', 'Figure') if fig_data.get('data') else 'Figure')
+                    
+                    return json.dumps({
+                        "chart_type": chart_type,
+                        "visualization_data": data_extract,
+                        "description": chart_title,
+                        "plot_path": file_path
+                    })
+                
+                # Handle other return types
                 else:
-                    return str(result) #Handle basic strings
-
+                    return str(result)
             else:
                 return output or "Code executed successfully, but no output was produced."
             
         except Exception as e:
-            return json.dumps({"result_type": "error", "error_message": str(e)})
-
-        except Exception as e:
-            return f"Error executing visualization code: {str(e)}"
+            error_message = str(e)
+            return json.dumps({
+                "chart_type": "Error",
+                "visualization_data": {},
+                "description": f"Error executing visualization code: {error_message}",
+                "plot_path": None
+            })
 
     def _arun(self, code: str) -> str:
         """Async version simply calls the sync version."""
         return self._run(code)
+
 
 visualization_tool = DataVisualizationTool()

@@ -1,0 +1,593 @@
+2025-05-12 16:43:49,985 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:43:51,899 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAFuXI3mMWZHI8uBIGOgN0l0A4dDh-UOJs "HTTP/1.1 200 OK"
+2025-05-12 16:43:51,910 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2025-05-12 16:43:51,916 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:43:51,918 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:43:51,934 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:43:52,007 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:43:53,292 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAFuXI3mMWZHI8uBIGOgN0l0A4dDh-UOJs "HTTP/1.1 200 OK"
+2025-05-12 16:43:53,299 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2025-05-12 16:43:53,302 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:43:53,304 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:43:53,320 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:43:53,389 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:43:56,426 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAFuXI3mMWZHI8uBIGOgN0l0A4dDh-UOJs "HTTP/1.1 200 OK"
+2025-05-12 16:43:56,426 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2025-05-12 16:43:56,426 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:43:56,426 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:43:56,457 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:43:56,480 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:44:01,170 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAFuXI3mMWZHI8uBIGOgN0l0A4dDh-UOJs "HTTP/1.1 200 OK"
+2025-05-12 16:44:01,170 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2025-05-12 16:44:01,170 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:44:01,170 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:44:01,191 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:44:03,597 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:44:06,112 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAFuXI3mMWZHI8uBIGOgN0l0A4dDh-UOJs "HTTP/1.1 200 OK"
+2025-05-12 16:44:06,112 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2025-05-12 16:44:06,112 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:44:06,112 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:44:06,127 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:44:06,154 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:44:11,307 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAFuXI3mMWZHI8uBIGOgN0l0A4dDh-UOJs "HTTP/1.1 200 OK"
+2025-05-12 16:44:11,323 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2025-05-12 16:44:11,323 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:44:11,334 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:44:11,352 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:44:11,795 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:44:12,784 - opentelemetry.sdk.trace.export - ERROR - Exception while exporting Span batch.
+Traceback (most recent call last):
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] Impossibile stabilire la connessione. Risposta non corretta della parte connessa dopo l'intervallo di tempo oppure mancata risposta dall'host collegato
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connection.py", line 704, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connection.py", line 207, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x000001C96B6EEE50>, 'Connection to telemetry.crewai.com timed out. (connect timeout=30)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='telemetry.crewai.com', port=4319): Max retries exceeded with url: /v1/traces (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001C96B6EEE50>, 'Connection to telemetry.crewai.com timed out. (connect timeout=30)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\opentelemetry\sdk\trace\export\__init__.py", line 362, in _export_batch
+    self.span_exporter.export(self.spans_list[:idx])  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\opentelemetry\exporter\otlp\proto\http\trace_exporter\__init__.py", line 189, in export
+    return self._export_serialized_spans(serialized_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\opentelemetry\exporter\otlp\proto\http\trace_exporter\__init__.py", line 159, in _export_serialized_spans
+    resp = self._export(serialized_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\opentelemetry\exporter\otlp\proto\http\trace_exporter\__init__.py", line 133, in _export
+    return self._session.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\adapters.py", line 688, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='telemetry.crewai.com', port=4319): Max retries exceeded with url: /v1/traces (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001C96B6EEE50>, 'Connection to telemetry.crewai.com timed out. (connect timeout=30)'))
+2025-05-12 16:44:14,804 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAFuXI3mMWZHI8uBIGOgN0l0A4dDh-UOJs "HTTP/1.1 200 OK"
+2025-05-12 16:44:14,819 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2025-05-12 16:44:14,819 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:44:14,829 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:44:14,845 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:44:14,870 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:44:21,101 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAFuXI3mMWZHI8uBIGOgN0l0A4dDh-UOJs "HTTP/1.1 200 OK"
+2025-05-12 16:44:21,105 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2025-05-12 16:44:21,107 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:44:21,107 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:44:21,118 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:44:21,579 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:44:23,118 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAFuXI3mMWZHI8uBIGOgN0l0A4dDh-UOJs "HTTP/1.1 200 OK"
+2025-05-12 16:44:23,121 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2025-05-12 16:44:23,123 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:44:23,123 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:44:23,131 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:44:23,170 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:44:24,517 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAFuXI3mMWZHI8uBIGOgN0l0A4dDh-UOJs "HTTP/1.1 200 OK"
+2025-05-12 16:44:24,542 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2025-05-12 16:44:24,545 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:44:24,547 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:44:24,563 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:44:33,885 - opentelemetry.sdk.trace.export - ERROR - Exception while exporting Span batch.
+Traceback (most recent call last):
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] Impossibile stabilire la connessione. Risposta non corretta della parte connessa dopo l'intervallo di tempo oppure mancata risposta dall'host collegato
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connection.py", line 704, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connection.py", line 207, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x000001C97584AF90>, 'Connection to telemetry.crewai.com timed out. (connect timeout=30)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='telemetry.crewai.com', port=4319): Max retries exceeded with url: /v1/traces (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001C97584AF90>, 'Connection to telemetry.crewai.com timed out. (connect timeout=30)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\opentelemetry\sdk\trace\export\__init__.py", line 362, in _export_batch
+    self.span_exporter.export(self.spans_list[:idx])  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\opentelemetry\exporter\otlp\proto\http\trace_exporter\__init__.py", line 189, in export
+    return self._export_serialized_spans(serialized_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\opentelemetry\exporter\otlp\proto\http\trace_exporter\__init__.py", line 159, in _export_serialized_spans
+    resp = self._export(serialized_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\opentelemetry\exporter\otlp\proto\http\trace_exporter\__init__.py", line 133, in _export
+    return self._session.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\adapters.py", line 688, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='telemetry.crewai.com', port=4319): Max retries exceeded with url: /v1/traces (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001C97584AF90>, 'Connection to telemetry.crewai.com timed out. (connect timeout=30)'))
+2025-05-12 16:44:54,966 - opentelemetry.sdk.trace.export - ERROR - Exception while exporting Span batch.
+Traceback (most recent call last):
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] Impossibile stabilire la connessione. Risposta non corretta della parte connessa dopo l'intervallo di tempo oppure mancata risposta dall'host collegato
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connection.py", line 704, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connection.py", line 207, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x000001C975753710>, 'Connection to telemetry.crewai.com timed out. (connect timeout=30)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='telemetry.crewai.com', port=4319): Max retries exceeded with url: /v1/traces (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001C975753710>, 'Connection to telemetry.crewai.com timed out. (connect timeout=30)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\opentelemetry\sdk\trace\export\__init__.py", line 362, in _export_batch
+    self.span_exporter.export(self.spans_list[:idx])  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\opentelemetry\exporter\otlp\proto\http\trace_exporter\__init__.py", line 189, in export
+    return self._export_serialized_spans(serialized_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\opentelemetry\exporter\otlp\proto\http\trace_exporter\__init__.py", line 159, in _export_serialized_spans
+    resp = self._export(serialized_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\opentelemetry\exporter\otlp\proto\http\trace_exporter\__init__.py", line 133, in _export
+    return self._session.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\adapters.py", line 688, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='telemetry.crewai.com', port=4319): Max retries exceeded with url: /v1/traces (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001C975753710>, 'Connection to telemetry.crewai.com timed out. (connect timeout=30)'))
+2025-05-12 16:50:08,322 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:50:10,238 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAFuXI3mMWZHI8uBIGOgN0l0A4dDh-UOJs "HTTP/1.1 200 OK"
+2025-05-12 16:50:10,242 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2025-05-12 16:50:10,244 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:10,244 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:10,247 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:10,314 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:50:11,743 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAFuXI3mMWZHI8uBIGOgN0l0A4dDh-UOJs "HTTP/1.1 200 OK"
+2025-05-12 16:50:11,759 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2025-05-12 16:50:11,759 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:11,759 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:11,791 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:11,976 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:50:15,914 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAFuXI3mMWZHI8uBIGOgN0l0A4dDh-UOJs "HTTP/1.1 200 OK"
+2025-05-12 16:50:15,929 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2025-05-12 16:50:15,929 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:15,929 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:15,954 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:15,979 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:50:21,600 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAFuXI3mMWZHI8uBIGOgN0l0A4dDh-UOJs "HTTP/1.1 200 OK"
+2025-05-12 16:50:21,600 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2025-05-12 16:50:21,600 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:21,600 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:21,620 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:22,952 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:50:24,845 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAFuXI3mMWZHI8uBIGOgN0l0A4dDh-UOJs "HTTP/1.1 200 OK"
+2025-05-12 16:50:24,845 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2025-05-12 16:50:24,845 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:24,845 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:24,900 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:24,949 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:50:27,860 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAFuXI3mMWZHI8uBIGOgN0l0A4dDh-UOJs "HTTP/1.1 200 OK"
+2025-05-12 16:50:27,860 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2025-05-12 16:50:27,860 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:27,860 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:27,894 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:27,979 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:50:29,740 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAFuXI3mMWZHI8uBIGOgN0l0A4dDh-UOJs "HTTP/1.1 200 OK"
+2025-05-12 16:50:29,740 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2025-05-12 16:50:29,740 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:29,740 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:29,756 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:29,796 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:50:30,865 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAFuXI3mMWZHI8uBIGOgN0l0A4dDh-UOJs "HTTP/1.1 200 OK"
+2025-05-12 16:50:30,880 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2025-05-12 16:50:30,880 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:30,880 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:30,887 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:30,959 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:50:31,460 - opentelemetry.sdk.trace.export - ERROR - Exception while exporting Span batch.
+Traceback (most recent call last):
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] Impossibile stabilire la connessione. Risposta non corretta della parte connessa dopo l'intervallo di tempo oppure mancata risposta dall'host collegato
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connection.py", line 704, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connection.py", line 207, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x000001D991346810>, 'Connection to telemetry.crewai.com timed out. (connect timeout=30)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='telemetry.crewai.com', port=4319): Max retries exceeded with url: /v1/traces (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001D991346810>, 'Connection to telemetry.crewai.com timed out. (connect timeout=30)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\opentelemetry\sdk\trace\export\__init__.py", line 362, in _export_batch
+    self.span_exporter.export(self.spans_list[:idx])  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\opentelemetry\exporter\otlp\proto\http\trace_exporter\__init__.py", line 189, in export
+    return self._export_serialized_spans(serialized_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\opentelemetry\exporter\otlp\proto\http\trace_exporter\__init__.py", line 159, in _export_serialized_spans
+    resp = self._export(serialized_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\opentelemetry\exporter\otlp\proto\http\trace_exporter\__init__.py", line 133, in _export
+    return self._session.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\adapters.py", line 688, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='telemetry.crewai.com', port=4319): Max retries exceeded with url: /v1/traces (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001D991346810>, 'Connection to telemetry.crewai.com timed out. (connect timeout=30)'))
+2025-05-12 16:50:31,651 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAFuXI3mMWZHI8uBIGOgN0l0A4dDh-UOJs "HTTP/1.1 200 OK"
+2025-05-12 16:50:31,667 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2025-05-12 16:50:31,667 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:31,667 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:31,687 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:31,698 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:50:32,771 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAFuXI3mMWZHI8uBIGOgN0l0A4dDh-UOJs "HTTP/1.1 200 OK"
+2025-05-12 16:50:32,786 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2025-05-12 16:50:32,786 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:32,786 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:32,813 - LiteLLM - INFO - selected model name for cost calculation: gemini/gemini-1.5-flash
+2025-05-12 16:50:33,053 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:50:33,169 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=None "HTTP/1.1 400 Bad Request"
+2025-05-12 16:50:33,239 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:50:33,348 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=None "HTTP/1.1 400 Bad Request"
+2025-05-12 16:50:33,363 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:50:33,465 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=None "HTTP/1.1 400 Bad Request"
+2025-05-12 16:50:33,486 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:50:33,677 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=None "HTTP/1.1 400 Bad Request"
+2025-05-12 16:50:33,739 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:50:33,917 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=None "HTTP/1.1 400 Bad Request"
+2025-05-12 16:50:34,012 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:50:34,171 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=None "HTTP/1.1 400 Bad Request"
+2025-05-12 16:50:34,260 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:50:34,375 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=None "HTTP/1.1 400 Bad Request"
+2025-05-12 16:50:34,406 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:50:34,505 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=None "HTTP/1.1 400 Bad Request"
+2025-05-12 16:50:34,539 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2025-05-12 16:50:34,636 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=None "HTTP/1.1 400 Bad Request"
+2025-05-12 16:50:52,510 - opentelemetry.sdk.trace.export - ERROR - Exception while exporting Span batch.
+Traceback (most recent call last):
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] Impossibile stabilire la connessione. Risposta non corretta della parte connessa dopo l'intervallo di tempo oppure mancata risposta dall'host collegato
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connection.py", line 704, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connection.py", line 207, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x000001D99A35D1D0>, 'Connection to telemetry.crewai.com timed out. (connect timeout=30)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='telemetry.crewai.com', port=4319): Max retries exceeded with url: /v1/traces (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001D99A35D1D0>, 'Connection to telemetry.crewai.com timed out. (connect timeout=30)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\opentelemetry\sdk\trace\export\__init__.py", line 362, in _export_batch
+    self.span_exporter.export(self.spans_list[:idx])  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\opentelemetry\exporter\otlp\proto\http\trace_exporter\__init__.py", line 189, in export
+    return self._export_serialized_spans(serialized_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\opentelemetry\exporter\otlp\proto\http\trace_exporter\__init__.py", line 159, in _export_serialized_spans
+    resp = self._export(serialized_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\opentelemetry\exporter\otlp\proto\http\trace_exporter\__init__.py", line 133, in _export
+    return self._session.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\adapters.py", line 688, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='telemetry.crewai.com', port=4319): Max retries exceeded with url: /v1/traces (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001D99A35D1D0>, 'Connection to telemetry.crewai.com timed out. (connect timeout=30)'))
+2025-05-12 16:51:13,608 - opentelemetry.sdk.trace.export - ERROR - Exception while exporting Span batch.
+Traceback (most recent call last):
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] Impossibile stabilire la connessione. Risposta non corretta della parte connessa dopo l'intervallo di tempo oppure mancata risposta dall'host collegato
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connection.py", line 704, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connection.py", line 207, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x000001D9871C0510>, 'Connection to telemetry.crewai.com timed out. (connect timeout=30)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='telemetry.crewai.com', port=4319): Max retries exceeded with url: /v1/traces (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001D9871C0510>, 'Connection to telemetry.crewai.com timed out. (connect timeout=30)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\opentelemetry\sdk\trace\export\__init__.py", line 362, in _export_batch
+    self.span_exporter.export(self.spans_list[:idx])  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\opentelemetry\exporter\otlp\proto\http\trace_exporter\__init__.py", line 189, in export
+    return self._export_serialized_spans(serialized_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\opentelemetry\exporter\otlp\proto\http\trace_exporter\__init__.py", line 159, in _export_serialized_spans
+    resp = self._export(serialized_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\opentelemetry\exporter\otlp\proto\http\trace_exporter\__init__.py", line 133, in _export
+    return self._session.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Utente\Desktop\projects\agents\.venv\Lib\site-packages\requests\adapters.py", line 688, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='telemetry.crewai.com', port=4319): Max retries exceeded with url: /v1/traces (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001D9871C0510>, 'Connection to telemetry.crewai.com timed out. (connect timeout=30)'))

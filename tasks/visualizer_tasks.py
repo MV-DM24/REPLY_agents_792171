@@ -24,9 +24,24 @@ Steps:
     - Create code to answer the user's question.
 4. Final Result:
     - Always return code which allows a graph, or a clearly explained reason why no graph could be created, it must make a choice.
+
+RULES:
+- Your output MUST be in the format of a JSON object with the following structure:
+    {{
+        "chart_type": "The type of visualization created",
+        "visualization_data": {{"x_values": [...], "y_values": [...], ...}},
+        "description": "A description of what the visualization shows",
+        "plot_path": "Path to the saved visualization file"
+    }}
+    
+    Ensure the JSON is properly formatted and contains all required fields.
 """,
 expected_output="""
-A single, visually-appealing graph representing the results of relevant analysis, created using Python libraries (e.g., Plotly or Matplotlib), using data. If not, a simple reason.
+A properly formatted JSON object containing:
+    - chart_type: The type of visualization created
+    - visualization_data: Data used for the visualization
+    - description: A description of what the visualization shows
+    - plot_path: Path to the saved visualization file
 """,
         tools = [visualization_tool]
     )

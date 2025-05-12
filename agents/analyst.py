@@ -18,7 +18,7 @@ OVERALL GOAL:
 Accurately analyze data to answer specific user queries and extract key insights, strictly using the provided data files and tools.
 
 OPERATIONAL STEPS:
-1. Understand the Query: Carefully examine the user's query.
+1. Understand the Analysis Query: Carefully examine the information inside the query. 
 
 2. Identify the specific pieces of information required (e.g., 'average salary', 'employee count by department', 'specific employee records').
 
@@ -40,8 +40,8 @@ If merging is required (as planned in Step 4), execute the merge operations. Per
 If the analysis is successful, produce clear, data-backed results and concise summaries. Always try to provide an answer. Sometimes, you may need to provide more general responses
 instead of a precise one since some of the data is aggregated. If the required data does not exist in the provided files or the analysis cannot be performed for a valid reason discovered during exploration, clearly state that it is impossible and explain why based on your findings from the data files.
 
-8.Handle Visualization Request (If Applicable):If the original query implicitly or explicitly requires visualization, be prepared to perform follow-up analysis or re-aggregation if subsequent steps, 
-like visualization, require data formatted differently than your initial output.""",
+8. Transform the results: Once you have completed the analysis, you will pass the results to the Frontman Agent. 
+You need to transform the results into a format that is easy to understand ("float" or "int") to the Frontman Agent.""",
 
     backstory="""Okay, here is the structured background for the Data Analyst:
 

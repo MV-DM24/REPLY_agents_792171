@@ -5,6 +5,8 @@ import sys
 import json
 import base64
 
+os.environ["CREWAI_TELEMETRY_ENABLED"] = "false"  # Disable telemetry for privacy
+
 # Dynamically determine project root and add to sys.path
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 if PROJECT_ROOT not in sys.path:
@@ -12,12 +14,14 @@ if PROJECT_ROOT not in sys.path:
 
 #Import Config should be done at top level, not inside IF - Load .env at start
 from utils.config import config
+from utils.guardrail import validate_analysis_output, validate_visualization_output
+from utils.callbacks import log_task_completion, track_analysis_completion, track_visualization_completion
+from utils.tool_registry import get_tools_for_task
 from langchain_community.chat_models import ChatLiteLLM
 
 from crewai import Crew, Process
-from crewai.flow.flow import Flow, start, listen
 from pydantic import BaseModel, Field
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Any
 from agents.frontman import FrontmanAgent
 from agents.analyst import DataAnalystAgent
 from agents.visualizer import DataVisualizerAgent
@@ -27,6 +31,18 @@ from tasks.visualizer_tasks import create_visualization_task
 from tools.analysis_tool import DataAnalysisTool
 from tools.visualization_tool import DataVisualizationTool
 
+
+# Define Pydantic models for structured task outputs
+class AnalysisOutput(BaseModel):
+    summary: str = Field(description="A summary of the analysis findings")
+    insights: List[str] = Field(description="Key insights from the data analysis")
+    metrics: Dict[str, float] = Field(description="Important metrics calculated during analysis")
+    
+class VisualizationOutput(BaseModel):
+    chart_type: str = Field(description="Type of visualization created")
+    visualization_data: Dict[str, Any] = Field(description="Data used for visualization") 
+    description: str = Field(description="Description of what the visualization shows")
+    plot_path: Optional[str] = Field(description="Path to the saved visualization file if applicable")
 
 
 AVAILABLE_DATA_PATHS = config.AVAILABLE_DATA_PATHS
@@ -50,7 +66,10 @@ if query:
     # 4. Create Tasks
     initial_task = create_initial_task(query=query)
     analyst_task = create_analyst_task(query=query)
+    analyst_task.output_pydantic = AnalysisOutput
+
     visualizer_task = create_visualization_task(query=query)
+    visualizer_task.output_pydantic = VisualizationOutput
 
     # 5. Orchestrate the Crew - Set task to agent here instead
     initial_task.agent = frontman_agent
@@ -67,102 +86,49 @@ if query:
 
     # 6. Run the crew and display the results
     st.write("Running the crew...")
-    final_result = crew.kickoff()
+    result = crew.kickoff()
 
-import re
-import json
-from crewai import CrewOutput
-from typing import Optional, Tuple
-
-def clean_and_extract_results(crew_output: CrewOutput) -> Tuple[Optional[str], Optional[str], Optional[str]]:
-    """
-    Processes a CrewOutput object to extract and clean analysis and visualization results.
-    Prioritizes structured data and handles potential errors for robust result extraction.
-
-    Args:
-        crew_output: The CrewOutput object from a CrewAI task execution.
-
-    Returns:
-        A tuple containing:
-        - analysis_result: The analysis result as a string, or None if not available.
-        - visualization_result: The visualization data as a JSON string, or None if not available.
-        - error_message: An error message, or None if no error occurred.
-    """
-
-    analysis_result = None
-    visualization_result = None
-    error_message = None
-
-    try:
-        # 1. Prioritize Pydantic Output (Structured Data)
-        if crew_output.pydantic:
-            #Assumed to be all that, then go to this step
-            #Since its Pydantic, it won't be just a str, you can create this from string as well
-            try:
-                #json = crew_output.pydantic.json()
-                import json
-                # Ensure there is a to-json
-                if hasattr(crew_output.pydantic, 'to_json'):
-                  # If there's to JSON, then treat it as that.
-                  json_result = crew_output.pydantic.to_json()
-                  output  = json.loads(json_result) #This means to dump as string is working.
-                else:
-                  #Treat it as a Str object
-                  output = str(crew_output.pydantic)
-
-                if output["result_type"] == "matplotlib" or output["result_type"] == "plotly":
-                    visualization_result = output.get("plotly_data") or output.get("image_data")
-                elif output["result_type"] == "text":
-                    analysis_result = output.get("text_data")
-                elif output["result_type"] == "error":
-                    error_message = output.get("error_message")
-                else:
-                    error_message = f"Unknown pydantic.result_type : {str(crew_output.pydantic)}" #The data type should be JSON,
-
-            except Exception as e: #error from load
-              error_message = f"Error Pydanctic result but was an error, double chekc! : {str(e)}"
-        #If we don't know how to work with the type of input, then skip and
-        elif crew_output.raw: # what is this? Can't parse
-              output_string = str(crew_output.raw) #if it is it string
-              try:
-                  crew_output = json.loads(output_string)
-
-                  if output["result_type"] == "matplotlib" or output["result_type"] == "plotly":
-                      visualization_result = output.get("plotly_data") or output.get("image_data")
-                  elif output["result_type"] == "text":
-                      analysis_result = output.get("text_data")
-                  elif output["result_type"] == "error":
-                      error_message = output.get("error_message")
-                  else:
-                      error_message = f"Unknown raw result_type: {str(crew_output.raw)}"
-              except Exception as e:
-                  error_message = f"Had something, not loading error: {str(e)}"
-    except Exception as e:
-      error_message = f"Has full object as error: {str(e)}"
-      
-    except Exception as e: #handle that load for everything
-
-                st.error(f"An error occurred during the last processing step. If you are trying to load a graph object there is a code implementation problem that will need to be addressed. Please check the debugging for the current state and ask for help. {e}")
-                st.write(error_message)
-
-    return analysis_result, visualization_result, error_message
-
-
-
-if final_result:
-        analysis_result, visualization_result, error_message = clean_and_extract_results(final_result)
-
-        if error_message:
-            st.error(f"Error: {error_message}")
+    # 7. Access individual task outputs
+    with st.expander("Initial Task Output"):
+        st.write(initial_task.output.raw)
+    
+    with st.expander("Analysis Results"):
+        analysis_output = analyst_task.output
+        if analysis_output.pydantic:
+            st.subheader("Analysis Summary")
+            st.write(analysis_output.pydantic.summary)
+            
+            st.subheader("Key Insights")
+            for idx, insight in enumerate(analysis_output.pydantic.insights, 1):
+                st.write(f"{idx}. {insight}")
+            
+            st.subheader("Important Metrics")
+            st.json(analysis_output.pydantic.metrics)
         else:
-            if analysis_result:
-                st.subheader("Analysis Result")
-                st.write(analysis_result)
-            if visualization_result:
-                st.subheader("Visualization Result")
-                st.image(visualization_result)
-else:
-        st.error("No result returned from the crew.")
+            st.write(analysis_output.raw)  # Fallback to raw output
+    
+    with st.expander("Visualization Results"):
+        viz_output = visualizer_task.output
+        if viz_output.pydantic:
+            st.subheader(f"{viz_output.pydantic.chart_type} Visualization")
+            st.write(viz_output.pydantic.description)
+            
+            # If there's a saved visualization file, display it
+            if viz_output.pydantic.plot_path and os.path.exists(viz_output.pydantic.plot_path):
+                try:
+                    if viz_output.pydantic.plot_path.endswith('.png') or viz_output.pydantic.plot_path.endswith('.jpg'):
+                        st.image(viz_output.pydantic.plot_path)
+                    elif viz_output.pydantic.plot_path.endswith('.html'):
+                        with open(viz_output.pydantic.plot_path, 'r') as f:
+                            html_content = f.read()
+                            st.components.v1.html(html_content, height=600)
+                except Exception as e:
+                    st.error(f"Error displaying visualization: {e}")
+        else:
+            st.write(viz_output.raw)  # Fallback to raw output
+
+
+
 
 
 

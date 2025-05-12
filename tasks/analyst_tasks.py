@@ -19,9 +19,23 @@ If the data is numeric, check the data type and the range of values.
 If the data is categorical, identify the categories and their meanings.
 If the available info is available in one dataset, you can use only that one. However, if the required data is spread across multiple files, use all of them and
 formulate and execute a plan to merge them using appropriate keys.
-4. perform the analysis needed to answer the query '{query}', think about your answer and context and provide a well-reasoned result.""",
+4. perform the analysis needed to answer the query '{query}', think about your answer and context and provide a well-reasoned result.
+RULES:
+- Your output MUST be in the format of a JSON object with the following structure:
+    {{
+        "summary": "A concise summary of your analysis findings",
+        "insights": ["Insight 1", "Insight 2", "Insight 3", ...],
+        "metrics": {{"metric_name1": value1, "metric_name2": value2, ...}}
+    }}
+    
+    Ensure the JSON is properly formatted and contains all required fields.
+""",
         expected_output=f"""A comprehensive response to the query '{query}',
 supported by the analysis performed on the data from {AVAILABLE_DATA_PATHS}.
+ A properly formatted JSON object containing:
+    - summary: A concise summary of the analysis findings
+    - insights: A list of key insights from the data
+    - metrics: A dictionary of important metrics calculated during analysis
 The response should clearly state the findings. Sometimes the data is aggregated, so you may need to provide a more general response instead of a precise one.
 If the analysis is successful, provide clear, data-backed results and concise summaries.
 If data exploration or merging was necessary, briefly mention the steps taken.
@@ -31,3 +45,4 @@ detailing which information was missing and which files were checked.
 The final response must be in the same language as the original query.""",
         tools=[analysis_tool],
         )
+
