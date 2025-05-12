@@ -3,10 +3,11 @@ from crewai import Agent
 from utils.config import config
 from tools.visualization_tool import visualization_tool
 from langchain_community.chat_models import ChatLiteLLM
+
 AVAILABLE_DATA_PATHS = config.AVAILABLE_DATA_PATHS
 
 class DataVisualizerAgent(Agent):
-    def __init__(self, llm=None, verbose=True):
+    def __init__(self, llm=None, verbose=True, context = str):
         llm = ChatLiteLLM(model="gemini/gemini-1.5-flash",
                           api_key=config.GOOGLE_API_KEY)
         super().__init__(
@@ -68,5 +69,6 @@ Based on the user's query and the analyst's findings (if any), create a single, 
             verbose=1,
             allow_delegation=False,
             llm=llm,
-            tools = [visualization_tool]
+            tools = [visualization_tool],
+            context = []
         )

@@ -8,7 +8,7 @@ import contextlib
 AVAILABLE_DATA_PATHS = os.environ.get("AVAILABLE_DATA_PATHS", "").split(",")
 
 class DataAnalysisTool(BaseTool):
-    name: str = "Python Pandas Code Executor"
+    name: str = "Python Code Executor"
     description: str = "Execute Python code for data analysis using pandas. Code must use file paths from AVAILABLE_DATA_PATHS."
 
     def _run(self, code: str) -> str:
@@ -18,6 +18,7 @@ class DataAnalysisTool(BaseTool):
             import numpy as np
             import sklearn as sk
             import scipy as sp
+            import re
             import io
             import contextlib
             from utils.config import config 
@@ -27,6 +28,7 @@ class DataAnalysisTool(BaseTool):
                 'np': np,
                 'sk': sk,
                 'sp': sp,
+                're':re,
                 'AVAILABLE_DATA_PATHS': config.AVAILABLE_DATA_PATHS 
             }
 
