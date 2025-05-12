@@ -164,6 +164,9 @@ class DataVisualizationTool(BaseTool):
 
             else:
                 return output or "Code executed successfully, but no output was produced."
+            
+        except Exception as e:
+            return json.dumps({"result_type": "error", "error_message": str(e)})
 
         except Exception as e:
             return f"Error executing visualization code: {str(e)}"
