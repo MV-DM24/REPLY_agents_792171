@@ -14,10 +14,10 @@ class Config:
     CHROMA_COLLECTION_NAME = os.getenv("CHROMA_COLLECTION_NAME", "my_crew_collection")  # Provide a default
 
     AVAILABLE_DATA_PATHS = {
-        'EntryAccessoAmministrati_202501.csv': os.getenv("ENTRY_ACCESSO_AMMINISTRATI"),
-        'EntryAmministratiPerFasciaDiReddito_202501.csv': os.getenv("ENTRY_AMMINISTRATI_REDDITO"),
-        'EntryPendolarismo_202501.csv': os.getenv("ENTRY_PENDOLARISMO"),
-        'EntryAccreditoStipendi_202501.csv': os.getenv("ENTRY_ACCREDITO_STIPENDI")
+        'AMMINISTRATI.csv': os.getenv("AMMINISTRATI"),
+        'REDDITO.csv': os.getenv("REDDITO"),
+        'PENDOLARISMO.csv': os.getenv("PENDOLARISMO"),
+        'STIPENDI.csv': os.getenv("STIPENDI")
     }
 
     EMBEDDING_MODEL_NAME = os.getenv("EMBEDDING_MODEL_NAME", "all-MiniLM-L6-v2")  # default model

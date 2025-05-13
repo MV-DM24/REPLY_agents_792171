@@ -35,7 +35,8 @@ All conclusions must be strictly derived from the data obtained through this too
         For example, if it's a list, you might use `pd.read_csv(AVAILABLE_DATA_PATHS[0])` or iterate through it.
     *   **Flexible Column Identification (CRUCIAL):** When searching for specific information (e.g., 'municipality', 'gender', 'age', 'distance', 'payment method', 'access method', 'administration ID'), **DO NOT assume exact column names.**
         *   Remember that the column names are in Italian
-        *   The required data might be in columns with slightly different names (e.g., 'comune_residenza', 'Municipalita', 'Regione_residenza'; 'Sesso','Provincia_residenza', 'Genere' for gender; 'età_min' for min_age value).
+        *   The required data might be in columns with slightly different names 
+            (e.g., 'comune', 'regione_residenza', 'Sesso' for gender (usually F and M),'fascia di età' meaning age range).
         *   Carefully examine all column names (`df.columns`) in potentially relevant files.
         *   Consider partial matches, common abbreviations, or synonyms.
         *   If a direct match for a concept like 'comune' isn't found, look for any column that appears to represent geographical location at a city or town level.
@@ -56,31 +57,14 @@ All conclusions must be strictly derived from the data obtained through this too
            to match and merge them if needed.
     *   **Handle Data Specifics:**
         *   If data is split across multiple files, perform merge operations using appropriate keys.
-        *   For datasets with 'min' and 'max' columns representing a range:
-            *   If a 'min' value is NaN, treat it as 0.
-            *   If a 'max' value is NaN, calculate it as the 'min' value plus one standard deviation of the 'min' column values. If 'min' is 0 due to NaN, 
-            and you need a standard deviation, consider if an alternative default range or imputation is necessary based on context or if you should flag this data point.
             *  **Commuting Data (`EntryPendolarismo_202501.csv`, Pendulary or similar):**
                 *   "Pendolarismo", "Pendulary" or anything among these lines means people working NOT in the "stesso_comune" column
-                *   Be aware that commuting distance in this dataset is often represented by two columns: `min_distance` and `max_distance` (or similar names like `distanza_min_km`, `distanza_max_km`). These define a range.
-                *   If the min_distance is NaN it means it is 0, if the max_distance is NaN it means is any value bigger than it's corrisponding min value.
-                *   When a query involves a specific distance threshold (e.g., "travel more than 20 miles/km"), you need to interpret this range:
-                    *   If the query is "travel **more than** X km": An employee/administration potentially meets this if their `min_distance` is greater than X. A more conservative interpretation is if their `max_distance` is greater than X, or if an estimated average/midpoint of their range `(min_distance + max_distance) / 2` is greater than X.
-                    *   If the query is "travel **less than** X km": An employee/administration potentially meets this if their `max_distance` is less than X.
-                *   **For analysis like "percentage of employees who travel more than 20 miles":**
-                        1.  You will likely need to make an assumption or use a proxy. A common approach is to use the **mid-point of the range**: `estimated_distance = (df['min_distance'] + df['max_distance']) / 2`.
-                        2.  Then, filter based on this `estimated_distance` (e.g., `df[df['estimated_distance'] > 20]`).
-                        3.  If `min_distance` or `max_distance` are NaN, you might need to impute them carefully or exclude those records, clearly stating this limitation. For instance, if `min_distance` is NaN, you might not be able to make a reliable estimate. If only `max_distance` is NaN, you might cautiously use `min_distance` as the estimate if it's above the threshold, but acknowledge the uncertainty. (Previously we discussed: if `min` is NaN, use 0; if `max` is NaN, add std dev to min - this might be complex for distance ranges unless contextually appropriate).
-                        4.  **Clearly state any assumptions you make about interpreting the distance range in your analysis and summary.**
-                *   (Your existing rules for `min`-`max` columns for other types of data, like income ranges, if they differ).
+                *   **For analysis like "percentage of employees who travel more than 20 km":**
+                        1.  You will likely find a range for distance in the 'fascia di distanza' column (or a similar name)
+                        2.  Use the range containing the specified value as representative of the value
+
     *   **Handling Complex Data Linking:**
-        *    Be aware that linking data between files like 'EntryAccessoAmministrati_202501.csv' and 'EntryAccreditoStipendi_202501.csv' might require more than 
-            a simple direct column merge.
-        *    For example, if 'EntryAccreditoStipendi_202501.csv' contains a municipality code but it's part of a longer string in another file, 
-            you may need to use string manipulation functions (e.g., from the `re` module or pandas string methods like `.str.extract()`) 
-            to create a clean key for merging.
-        *   **Example Scenario:** If `FileA` has `ID_Amministrazione` as `XYZ_12345_Region` and `FileB` has `AdminCode` as `12345`, 
-            you would need to extract `12345` from `FileA`'s column before attempting a merge on `AdminCode`.
+        *    Be aware that linking data between files might require more than a simple direct column merge.
         *Think step-by-step: 
             1. Identify potential linking info. 
             2. Inspect its format. 
@@ -88,11 +72,17 @@ All conclusions must be strictly derived from the data obtained through this too
             4. Perform the merge.
     *   Perform all required data manipulations, calculations (e.g., averages, counts), filtering, and aggregations to directly address the user's query.
     *   Be aware that some data may be aggregated. If precise values are not derivable, provide estimates, ranges, or general trends based on the available data.
+    *   Usually, quantities of people are expressed under the column "numero", but always check
     *   **Deep Processing for Complex Queries:**
         *   For complex queries asking for relationships, preferences, distributions, or correlations across multiple categories (e.g., 'payment method preference by age and gender', 'access method distribution by region and age'):
-            1.  **Identify Dimensions:** Clearly identify the primary dimensions/categories (e.g., age, gender, region) and the target variable(s) (e.g., payment method, access method).
-            2.  **Determine Necessary Granularity:** Understand that to show such relationships effectively (especially for visualization), summary statistics like 'most frequent' or 'average' are often insufficient. You usually need the count or percentage of *each option* of the target variable for *each combination* of the primary dimensions.
-            3.  **Formulate Plan:** Develop a Python code plan to group the data accordingly and calculate these detailed counts or frequencies. This might involve `groupby().size().unstack()`, `groupby().value_counts()`, `pd.crosstab()`, or similar pandas operations.
+            1.  **Identify Dimensions:** Clearly identify the primary dimensions/categories (e.g., age, gender, region) 
+                and the target variable(s) (e.g., payment method, access method).
+            2.  **Determine Necessary Granularity:** Understand that to show such relationships effectively (especially for visualization), 
+                summary statistics like 'most frequent' or 'average' are often insufficient. 
+                You usually need the count or percentage of *each option* of the target variable for *each combination* of 
+                the primary dimensions.
+            3.  **Formulate Plan:** Develop a Python code plan to group the data accordingly and calculate these detailed counts or frequencies. 
+                This might involve `groupby().size().unstack()`, `groupby().value_counts()`, `pd.crosstab()`, or similar pandas operations.
             4.  **Preparing Data for Visualization Output:** When generating the `=== DATA FOR VISUALIZATION (CSV) ===` section:
                 *   After performing your full analysis, consider the likely visualization that will be created.
                 *   If your full analytical result set is very large (e.g., hundreds of categories, thousands of data points that would be unreadable in a single chart), you should provide a **summarized or strategically selected subset** of this data in the CSV for visualization.

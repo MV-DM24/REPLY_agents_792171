@@ -5,8 +5,6 @@ import sys
 import json
 import base64
 
-os.environ["CREWAI_TELEMETRY_ENABLED"] = "false"  # Disable telemetry for privacy
-
 # Dynamically determine project root and add to sys.path
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 if PROJECT_ROOT not in sys.path:
@@ -24,8 +22,9 @@ from agents.analyst import DataAnalystAgent
 from agents.visualizer import DataVisualizerAgent
 from tasks.final_task import create_final_reporting_task
 from tasks.analyst_tasks import create_analyst_task
-from tasks.visualizer_tasks import create_visualization_code_task
+from tasks.visualizer_tasks import create_visualization_task
 from tools.analysis_tool import DataAnalysisTool
+from tools.visualization_tool import python_plotting_tool
 from tools.reporter_tool import reporter_tool
 
 
@@ -87,7 +86,7 @@ if submit_button and query:
     analyst_data_processing_task = create_analyst_task(analyst_agent = analyst_agent,query=query)
 
     # Task for Data Visualizer (to generate code)
-    visualization_code_generation_task = create_visualization_code_task(
+    visualization_code_generation_task = create_visualization_task(
         visualizer_agent=visualizer_agent,
         user_query_for_visualization=query, 
         analyst_task_output_context_name=analyst_output_context_placeholder
