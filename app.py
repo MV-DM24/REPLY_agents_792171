@@ -19,10 +19,10 @@ from langchain_community.chat_models import ChatLiteLLM
 from crewai import Crew, Process
 from pydantic import BaseModel, Field
 from typing import List, Dict, Optional, Any
-from agents.frontman import FrontmanAgent
+from agents.reporter import ReporterAgent
 from agents.analyst import DataAnalystAgent
 from agents.visualizer import DataVisualizerAgent
-from tasks.initial_task import create_initial_task
+from tasks.final_task import create_final_task
 from tasks.analyst_tasks import create_analyst_task
 from tasks.visualizer_tasks import create_visualization_task
 from tools.analysis_tool import DataAnalysisTool

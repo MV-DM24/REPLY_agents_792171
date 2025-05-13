@@ -5,7 +5,7 @@ from crewai.tools import BaseTool
 from typing import Type, Any, Dict, List, Optional
 import io
 import contextlib
-AVAILABLE_DATA_PATHS = os.environ.get("AVAILABLE_DATA_PATHS", "").split(",")
+#AVAILABLE_DATA_PATHS = os.environ.get("AVAILABLE_DATA_PATHS", "").split(",")
 
 class DataAnalysisTool(BaseTool):
     name: str = "Python Code Executor"
@@ -16,8 +16,6 @@ class DataAnalysisTool(BaseTool):
         try:
             import pandas as pd
             import numpy as np
-            import sklearn as sk
-            import scipy as sp
             import re
             import io
             import contextlib
@@ -26,8 +24,6 @@ class DataAnalysisTool(BaseTool):
             local_namespace = {
                 'pd': pd,
                 'np': np,
-                'sk': sk,
-                'sp': sp,
                 're':re,
                 'AVAILABLE_DATA_PATHS': config.AVAILABLE_DATA_PATHS 
             }
