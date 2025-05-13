@@ -25,28 +25,61 @@ def create_visualization_code_task(
         Task: An instance of a CrewAI Task.
     """
     description_for_code_visualizer_task = f"""
-**Objective:** You are ONLY activated IF the user asks for a visualization AND there is structured data from the Data Analyst to generate it. Your goal is to design and generate Python code (using Matplotlib/Seaborn) and the necessary structured data to produce a single, clear visualization. This code and data are intended for later execution by another system (e.g., Streamlit) to render the actual graph. **You will NOT execute any code, save any files, or use any tools.**
+**Objective:** 
+You are ONLY activated IF the user asks for a visualization AND there is structured data from the Data Analyst to generate it. 
+Your goal is to design and generate Python code (using Matplotlib/Seaborn) and the necessary structured data to produce a single, 
+clear visualization. This code and data are intended for later execution by another system (e.g., Streamlit) 
+to render the actual graph. **You will NOT execute any code, save any files, or use any tools. Your SOLE output is a single, valid JSON object string.**
 
-**Data Source:**
-*   The Data Analyst's structured output (available as: '{analyst_task_output_context_name}') is your EXCLUSIVE data source. Your generated Python code should be prepared to parse/use this data. For example, if '{analyst_task_output_context_name}' provides a CSV string, your Python code must include logic like `import pandas as pd; import io; df_viz_data = pd.read_csv(io.StringIO(analyst_data_string_variable))`.
+**Data Source & Preparation:**
+*   The Data Analyst's output (available as: '{analyst_task_output_context_name}') is your primary input.
+*   This input contains two parts: a human-readable summary and a machine-readable data section for visualization.
+*   You MUST locate the machine-readable data section, which begins with the exact delimiter: `=== DATA FOR VISUALIZATION (CSV) ===`.
+*   The content *following this delimiter* is the CSV string data you MUST use for generating your `"data_for_visualization.value"` field 
+    and for designing your `"python_code_to_generate_figure"`.
+*   Your generated Python code (for `"python_code_to_generate_figure"`) must include logic to parse this CSV string (e.g., using `pd.read_csv(io.StringIO(csv_data_string))`).
 
 **Your Steps:**
 
-1.  **Understand Visualization Request & Analyst Data:**
+1.  **Understand Visualization Request & Extract Analyst's Visualization Data:**
     *   Analyze the user's visualization request: '{user_query_for_visualization}'.
-    *   Thoroughly examine the Analyst's structured data from '{analyst_task_output_context_name}'.
-    *   If this data is unsuitable or insufficient, your output JSON must clearly explain why no visualization code can be generated.
+    *   From the full Analyst output ('{analyst_task_output_context_name}'), extract the CSV data string found after 
+        the `=== DATA FOR VISUALIZATION (CSV) ===` delimiter. This is your primary data for plotting.
+    *   Examine this extracted CSV data.
+    *   If this data section is missing, or if the data (even if summarized by the analyst) is still unsuitable or 
+        insufficient for the requested visualization, your output JSON must clearly explain why no visualization code can be generated.
 
 2.  **Design Visualization & Parameters:**
-    *   Choose the SINGLE most appropriate chart type (e.g., bar, line, scatter).
-    *   Identify data elements from the Analyst's output for axes, grouping, etc.
-    *   Define a chart title, x-axis label, y-axis label, a brief description of the intended visual insight, and the suggested library (e.g., 'matplotlib').
+    *   Based on the user's request and the *extracted CSV data*, choose the SINGLE most appropriate chart type.
+    *   Identify columns from the *extracted CSV data* for axes, grouping, etc.
+    *   Define a chart title, x-axis label, y-label, a brief descriptive summary, and the suggested library.
 
 3.  **Generate Python Code & Package Data for Output JSON:**
-    *   Write Python code (e.g., Matplotlib/Seaborn) to generate the chart. This code should:
-        *   Be designed to accept the necessary data. If the data from '{analyst_task_output_context_name}' is a string (like CSV), your code must include parsing logic.
-        *   **NOT include `plt.savefig()` or `plt.show()`.** It should construct the plot object (e.g., a Matplotlib Figure that can be returned by a function in your code).
-    *   Prepare the specific data required by your Python code in a structured, JSON-serializable format. Clearly specify the `format` of this data (e.g., 'csv_string', 'json_records_string') and include the `value` in your output JSON.
+    *   **Python Code (`python_code_to_generate_figure`):**
+        *   Write Python code that defines a function named `generate_visualization_figure`.
+        *   This function MUST accept arguments: `df_data_for_plot` (pandas DataFrame), `title_param` (string), `xlabel_param` (string), `ylabel_param` (string).
+        *   The first step inside your `generate_visualization_figure` function, if the input data string needs parsing, should be to convert the input data (which will be the `value` from your `data_for_visualization` field) into a pandas DataFrame. For example, if `data_for_visualization.format` is 'csv_string', this would be: `df_actual_plot_data = pd.read_csv(io.StringIO(df_data_for_plot_string_input))` assuming the function takes the string and not the pre-parsed DataFrame.
+        *   Alternatively, and perhaps better, your function can directly expect a DataFrame: `def generate_visualization_figure(df_data_for_plot: pd.DataFrame, ...)` and the reporter tool will handle parsing the CSV string from `data_for_visualization.value` into a DataFrame before calling your function. **Let's assume this latter approach: your function expects a DataFrame.**
+        *   The function then uses this `df_data_for_plot` DataFrame to generate the chart.
+        *   It MUST NOT include `plt.savefig()` or `plt.show()`. It MUST `return` the Matplotlib Figure object.
+        *   Example:
+            ```python
+            import matplotlib.pyplot as plt
+            import pandas as pd # Ensure pandas is imported if your function uses it
+
+            def generate_visualization_figure(df_data_for_plot, title_param, xlabel_param, ylabel_param):
+                fig, ax = plt.subplots(figsize=(10,6))
+                # YOUR PLOTTING LOGIC HERE using df_data_for_plot
+                # e.g., ax.bar(df_data_for_plot['X_COLUMN'], df_data_for_plot['Y_COLUMN'])
+                ax.set_title(title_param)
+                ax.set_xlabel(xlabel_param)
+                ax.set_ylabel(ylabel_param)
+                plt.tight_layout()
+                return fig
+            ```
+    *   **Data for Visualization (`data_for_visualization`):**
+        *   The `value` for this field in your output JSON should be the **exact CSV string** you extracted from the Analyst's output (from after the `=== DATA FOR VISUALIZATION (CSV) ===` delimiter).
+        *   The `format` should be `"csv_string"`.
 
 4.  **Construct Final JSON Output:**
     *   Your final output MUST be a single JSON object containing the Python code, the prepared data, plot parameters, and a description.

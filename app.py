@@ -84,12 +84,9 @@ if submit_button and query:
     visualizer_output_context_placeholder = "{{visualization_code_generation_task.output}}"
 
     # Task for Data Analyst
-
-    analyst_data_processing_task = create_analyst_task(query=query)
-    analyst_data_processing_task.agent = analyst_agent
+    analyst_data_processing_task = create_analyst_task(analyst_agent = analyst_agent,query=query)
 
     # Task for Data Visualizer (to generate code)
-
     visualization_code_generation_task = create_visualization_code_task(
         visualizer_agent=visualizer_agent,
         user_query_for_visualization=query, 
