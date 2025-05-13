@@ -26,6 +26,11 @@ All conclusions must be strictly derived from the data obtained through this too
 
 2.  **Data Exploration (MANDATORY Tool Use):**
     *   You MUST use the `analysis_tool` for this step.
+    *   **Context of data (how to read)**: the data is aggregated. Each row contains a sum of employees that fit the ranges and variables
+        that are in that row. 
+        * For example, in the "AMMINISTRATI.csv", the first row represents 2 people ("numero" = 2) that
+        are in the age range 25-34, work in the "A.O.S. GIOVANNI ADDOLORATA" amministrazione, in the regione Abruzzo and use
+        SPID as authentication method.
     *   Systematically investigate all provided data files (accessible via `{AVAILABLE_DATA_PATHS}`) to determine which ones contain, 
         or are likely to contain, the required information. There are four data files for raw data, and three for cleaned data.
     *   For each potentially relevant file, use the `analysis_tool` to inspect its structure (e.g., columns, data types using methods like `df.info()`, 
@@ -44,20 +49,19 @@ All conclusions must be strictly derived from the data obtained through this too
 
 3.  **Data Preparation & Analysis (MANDATORY Tool Use):**
     *   Continue to use the `analysis_tool` exclusively.
-    *   Load the necessary dataframes using the correct file paths. The file paths ending in _202501.csv are raw data,
-        while the files ending in _df.csv are cleaned. 
+    *   Load the necessary dataframes using the correct file paths.
+    *   Always try to find the relevant info in one dataset first.
     *   **Merging Data from Multiple Files:**
         * Pay close attention to identifying common columns or combinations of columns that can serve as merge keys between different datasets.
         * For instance, to link employee demographics with their municipality of employment, 
-          you might need to merge 'EntryAccessoAmministrati_202501.csv' with 'EntryAccreditoStipendi_202501.csv'.
+          you might need to merge 'STIPENDI' and 'AMMINISTRATI'.
         * **Hint:** If direct keys are not obvious, consider if a multi-column key is needed or if minor data cleaning (e.g., stripping whitespace from key columns) 
            might be required before merging. 
-           You MUST use the `analysis_tool` to inspect column names (`df.columns`, `df.info()`) in ALL relevant files to find potential keys. Sometimes
-           the key needed might not have an explicit name, so feel free to rename the columns from different datasets
-           to match and merge them if needed.
     *   **Handle Data Specifics:**
         *   If data is split across multiple files, perform merge operations using appropriate keys.
-            *  **Commuting Data (`EntryPendolarismo_202501.csv`, Pendulary or similar):**
+        *   Number of emplyees is usually represented by the variable "numero"
+        *   The department, ministry, agency where the personnel works is usually in the variable "amministrazione", but always double-check
+            *  **Commuting Data (`PENDOLARISMO.csv`, Pendulary or similar):**
                 *   "Pendolarismo", "Pendulary" or anything among these lines means people working NOT in the "stesso_comune" column
                 *   **For analysis like "percentage of employees who travel more than 20 km":**
                         1.  You will likely find a range for distance in the 'fascia di distanza' column (or a similar name)
@@ -71,7 +75,10 @@ All conclusions must be strictly derived from the data obtained through this too
             3. If formats differ, plan code to standardize them. 
             4. Perform the merge.
     *   Perform all required data manipulations, calculations (e.g., averages, counts), filtering, and aggregations to directly address the user's query.
-    *   Be aware that some data may be aggregated. If precise values are not derivable, provide estimates, ranges, or general trends based on the available data.
+    *   Be aware that some data may be aggregated. Since precise values are not derivable because the data is aggregated,
+        provide estimates, ranges, or general trends based on the available data.
+    *   When the query requires a specific value of age, distance or salary ("reddito") use the range in which the value
+        is contained as reference.
     *   Usually, quantities of people are expressed under the column "numero", but always check
     *   **Deep Processing for Complex Queries:**
         *   For complex queries asking for relationships, preferences, distributions, or correlations across multiple categories (e.g., 'payment method preference by age and gender', 'access method distribution by region and age'):
