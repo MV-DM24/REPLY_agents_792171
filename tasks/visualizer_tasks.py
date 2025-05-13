@@ -78,58 +78,54 @@ def create_visualization_code_task(
             "description": "string (Clear explanation why no visualization code could be generated)"
         }}
         ```
-    ***CRITICAL JSON FORMATTING RULES:***
-    1.  **Valid JSON Syntax:** Your entire output MUST be a single, valid JSON object. Ensure all keys and string values are enclosed in **double quotes** (e.g., `"myKey": "myValue"`). Do not use single quotes.
-    2.  **String Escaping:** When generating the string value for `"python_code_to_generate_figure"` and the string value for `"data_for_visualization.value"` (especially if its format is 'csv_string' or any other string-based format):
-        *   All **double quotes (`"`)** within these strings MUST be escaped as **`\\"`**.
-        *   All **backslashes (`\\`)** within these strings MUST be escaped as **`\\\\`**.
-        *   All **newline characters (`\\n`)** that are part of the content of these strings (e.g., newlines in Python code, newlines in CSV data) MUST be escaped as **`\\\\n`**.
-        *   Other special characters like carriage returns (`\\r`) should be `\\\\r`, and tabs (`\\t`) should be `\\\\t`.
-        Failure to correctly escape these characters within your string fields will result in an invalid JSON output.
-    3.  **No Markdown:** Do not wrap your final JSON output in markdown fences like ```json ... ```. The output must be the raw JSON string itself.
+***ULTRA-CRITICAL JSON STRING FIELD FORMATTING RULES (APPLY TO VALUES OF "python_code_to_generate_figure" AND "data_for_visualization.value" IF IT'S A STRING):***
+    A) **ALL JSON string values MUST be enclosed in double quotes (`"`).**
+    B) **Within any JSON string value, special characters MUST be escaped as follows:**
+        1.  **Double Quote (`"`)**: Must be escaped as **`\\"`** (backslash followed by a quote).
+            Example Python code: `message = "Hello, \\"World\\""` becomes JSON string: `"message = \\"Hello, \\\\\\\"World\\\\\\\"\\""`
+        2.  **Backslash (`\\`)**: Must be escaped as **`\\\\`** (two backslashes).
+            Example Python code: `path = "C:\\\\temp"` becomes JSON string: `"path = \\"C:\\\\\\\\temp\\""`
+        3.  **Newline (`\\n`)**: Must be escaped as **`\\\\n`** (backslash followed by 'n').
+            Example Python code with newline: `code = "line1\\nline2"` becomes JSON string: `"code = \\"line1\\\\nline2\\""`
+        4.  **Carriage Return (`\\r`)**: Must be escaped as **`\\\\r`**.
+        5.  **Tab (`\\t`)**: Must be escaped as **`\\\\t`**.
+        6.  **Backspace (`\\b`)**: Must be escaped as **`\\\\b`**.
+        7.  **Form Feed (`\\f`)**: Must be escaped as **`\\\\f`**.
+    C) **No Unescaped Control Characters:** Ensure no raw control characters (ASCII 0-31) are present within string values unless properly escaped as above.
+    D) **Think of it this way:** If you were writing this JSON string in Python, how would you define the string for `python_code_to_generate_figure`?
+        Example: `python_code = "import matplotlib.pyplot as plt\\nfig, ax = plt.subplots()\\nax.set_title(\\"My Plot\\")\\nreturn fig"`
+        The JSON field would be: `"python_code_to_generate_figure": "import matplotlib.pyplot as plt\\nfig, ax = plt.subplots()\\nax.set_title(\\\"My Plot\\\")\\nreturn fig"`
+        Notice how the `\\n` for newline in Python string becomes `\\n` in JSON, and `\\"` for quote in Python string becomes `\\\"` in JSON.
+    E) **Double-check the `value` field of `data_for_visualization`:** If `format` is 'csv_string', the `value` will be a single string containing the entire CSV. 
+    All newlines within this CSV string must be escaped as `\\\\n`, and any double quotes within the CSV data must be escaped as `\\\"`.
 
-If successful, the JSON MUST contain:
-    - "visualization_type": The type of visualization designed (e.g., 'bar_chart').
-    - "python_code_to_generate_figure": A string of Python code (e.g., Matplotlib/Seaborn) that will generate the visualization figure. This code MUST NOT save or show the plot itself. It should be self-contained or define a function that can be called with the provided data.
-    - "data_for_visualization": An object with a "format" field (e.g., 'csv_string', 'json_records_string') and a "value" field (the actual data string or structure) needed by the "python_code_to_generate_figure".
-    - "plot_parameters": A dictionary with "title", "x_label", "y_label", and "suggested_library".
-    - "description": A textual description of what the visualization is intended to show.
-
-If unable to design a visualization (e.g., due to unsuitable data), the JSON MUST contain:
-    - "visualization_type": "none"
-    - "python_code_to_generate_figure": null
-    - "data_for_visualization": null
-    - "plot_parameters": null
-    - "description": A clear explanation of why no visualization code could be generated.
-
-The entire output MUST be a single valid JSON object.
+Your adherence to these JSON formatting and escaping rules is ABSOLUTELY ESSENTIAL for the successful completion of your task. 
+Double-check your generated JSON string for validity before outputting it.
 """
     expected_output_for_code_visualizer_task = """
 A single, well-formatted JSON object adhering to the structures described in the task objective.
 
-If successful, the JSON MUST contain these top-level keys:
-    - "visualization_type": A string indicating the type of visualization designed (e.g., 'bar_chart', 'line_plot').
-    - "python_code_to_generate_figure": A string of Python code (e.g., using Matplotlib/Seaborn) that, when executed, will generate the visualization figure. This code MUST NOT save or show the plot itself. It should be self-contained or define a function that can be called with the provided data. If the data input for the function is a string (e.g., CSV string), the Python code must include the necessary parsing logic (e.g., `import pandas as pd; import io; df = pd.read_csv(io.StringIO(data_string))`).
-    - "data_for_visualization": An object containing:
-        - "format": A string specifying the format of the data value (e.g., 'csv_string', 'json_records_string', 'json_records_list', 'dict_of_lists').
-        - "value": The actual data (e.g., a CSV string, a list of dictionaries, a dictionary of lists) needed by the "python_code_to_generate_figure". This value should be directly usable by the Python code after appropriate parsing if it's a string format.
-    - "plot_parameters": A dictionary containing:
-        - "title": A string for the chart title.
-        - "x_label": A string for the X-axis label.
-        - "y_label": A string for the Y-axis label.
-        - "suggested_library": A string indicating the primary Python library intended for the code (e.g., 'matplotlib', 'seaborn').
-    - "description": A string providing a brief textual description of what the visualization is intended to show and its key insights.
+A single, raw JSON object string. This string MUST be perfectly parsable by a standard JSON parser.
+It MUST NOT be wrapped in markdown ```json ... ``` fences or any other text.
 
-If unable to design a visualization (e.g., due to unsuitable data), the JSON MUST contain these top-level keys:
-    - "visualization_type": The string "none".
-    - "python_code_to_generate_figure": The value null.
-    - "data_for_visualization": The value null.
-    - "plot_parameters": The value null.
-    - "description": A string clearly explaining why no visualization code could be generated.
+The JSON object MUST conform to one of the two structures (Success Case or Failure Case) detailed in the task description's "Construct Final JSON Output" section (Step 4).
 
-The entire output MUST be a single valid JSON object, without any surrounding markdown fences.
-All JSON keys and string values must use double quotes.
-All special characters within string values (especially in "python_code_to_generate_figure" and "data_for_visualization.value") must be correctly JSON-escaped (e.g., `"` as `\\"`, `\\` as `\\\\`, `\\n` as `\\\\n`).
+Key requirements for the JSON content:
+1.  **Top-level Keys (Success Case):** "visualization_type", "python_code_to_generate_figure", "data_for_visualization", "plot_parameters", "description".
+2.  **Top-level Keys (Failure Case):** "visualization_type" (value "none"), "python_code_to_generate_figure" (value null), "data_for_visualization" (value null), "plot_parameters" (value null), "description" (string explaining failure).
+3.  **"python_code_to_generate_figure"**: A string containing valid Python code. This code MUST handle parsing of its input data (e.g., if data is a CSV string) and MUST return a Matplotlib Figure object. It MUST NOT call `plt.show()` or `plt.savefig()`.
+4.  **"data_for_visualization"**: An object with "format" (string, e.g., 'csv_string') and "value" (the data itself, appropriately typed or serialized as a string).
+5.  **JSON Syntax Rules:**
+    *   All keys and string values enclosed in **double quotes (`"`)**.
+    *   Special characters within any JSON string value (especially within "python_code_to_generate_figure" and "data_for_visualization.value" if it's a string) MUST be correctly escaped:
+        *   `"` must be `\\"`
+        *   `\\` must be `\\\\`
+        *   Newline (`\\n`) must be `\\\\n`
+        *   Carriage return (`\\r`) must be `\\\\r`
+        *   Tab (`\\t`) must be `\\\\t`
+    *   Refer to the "ULTRA-CRITICAL JSON STRING FIELD FORMATTING RULES" in the task description.
+
+Verification: Imagine the output string you generate is directly passed to `json.loads()` in Python. It must parse without any errors.
 """
 
     return Task(

@@ -120,13 +120,7 @@ class StreamlitReporterTool(BaseTool):
                         json_to_parse_viz = visualizer_json_output[start_idx_viz : end_idx_viz+1]
                     else: # Fallback
                         json_to_parse_viz = visualizer_json_output.replace("```json\n", "").replace("\n```", "").strip()
-                st.markdown("--- DEBUG: String to be parsed by json.loads ---")
-                st.text(json_to_parse_viz) # Display the exact string
-                st.markdown(f"--- Length of string: {len(json_to_parse_viz)} ---")
-                # You can also try to print the character at and around char 887
-                if len(json_to_parse_viz) > 890:
-                    st.text(f"Chars around 887: ...'{json_to_parse_viz[880:895]}'...")
-                st.markdown("--- END DEBUG ---")
+
                 viz_data = json.loads(json_to_parse_viz)
 
             except json.JSONDecodeError as e:
