@@ -43,4 +43,4 @@ class PythonPlottingTool(BaseTool):
         except Exception as e:
             return f"Error executing plotting code: {str(e)}"
 
-python_plotting_tool = PythonPlottingTool() # Instance to be used by Visualizer Agent
+python_plotting_tool = PythonPlottingTool() 

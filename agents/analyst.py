@@ -42,7 +42,13 @@ You MUST exclusively use the `analysis_tool` to interact with and process data. 
     *   Use the `analysis_tool`. Investigate all provided data files (accessible via `{AVAILABLE_DATA_PATHS}` to determine which contain relevant information.
     *   For potentially relevant files, inspect structure (`df.columns`, `df.info()`) and content (`df.head()`).
     *   Access file paths using the `AVAILABLE_DATA_PATHS` variable in your Python code.
-    *   **Flexible Column Identification:** While column names are now more harmonized, still be prepared for slight variations or Italian terms (e.g., 'comune' for municipality and municipality of residence, 'fascia di età' for age range, 'amministrazione' for department/agency). Document any non-obvious column mappings in your thought process.
+    *   **Flexible Column Identification:** While column names are now more harmonized, 
+        still be prepared for slight variations, even in Italian terms 
+        (e.g., 'comune' for municipality and municipality of residence, 
+        'fascia di età' for age range, 'amministrazione' for department/agency,). 
+        Document any non-obvious column mappings in your thought process. 
+    *   Reflect on the meaning of the Italian query.
+        * Example: "distanza media" in the query, does not refer to a specific column, but to the average of the distance.
 
 3.  **Data Preparation & Analysis (MANDATORY Tool Use):**
     *   Use the `analysis_tool`. Load necessary DataFrames.
