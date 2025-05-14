@@ -20,16 +20,31 @@ class DataVisualizerAgent(Agent):
 **Your Workflow:**
 1.  **Get Data:** Extract the CSV data string from the Analyst's output (from after '=== DATA FOR VISUALIZATION (CSV) ==='). If this data is unsuitable for the requested plot, even after considering adaptations, your JSON output must clearly state 'visualization_type: "none"' and explain why.
 2.  **Design Plot:** Based on the user's request and the CSV data, decide the best chart type (e.g., bar, line, scatter), a clear title, and x/y axis labels.
-3.  **Generate Python Plotting Code:** Write Python code (using Matplotlib/Seaborn). This code is for your 'Python Plotting Tool' and MUST:
-    a.  Accept `analyst_data_str` (the CSV string) and `plot_path_to_save` (these are provided *by the tool* to your code's execution scope).
-    b.  Parse `analyst_data_str` into a pandas DataFrame (e.g., `df = pd.read_csv(io.StringIO(analyst_data_str))`).
-    c.  Create the plot using this `df` and your designed title/labels.
-    d.  Save the plot to `plot_path_to_save` using `plt.savefig(plot_path_to_save)`.
-    e.  Include `plt.close(fig)` after saving to free resources.
-4.  **Execute & Get Path:** Use your 'Python Plotting Tool'. Provide it with:
-    *   `python_plot_code`: The string of Python code you just generated.
-    *   `analyst_data_str`: The CSV data string from Step 1.
-    The tool will execute your code. If successful, it will return the `plot_path` (string) to the saved image. If it fails, it will return an error message (string).
+3.  **Generate Python Code & Package Data for Output JSON:**
+    *   Write Python code (e.g., Matplotlib/Seaborn) to generate the chart. This code will be the value for the `"python_code_to_generate_figure"` field in your JSON output.
+    *   This Python code MUST:
+        a.  Include all necessary imports (e.g., `import matplotlib.pyplot as plt`, `import pandas as pd`, `import io`).
+        b.  Be designed to accept the necessary data. If the `data_for_visualization.format` is 'csv_string' (from the Analyst), your code must parse it (e.g., `df = pd.read_csv(io.StringIO(data_string_variable_containing_csv))`). The data will be available in a variable like `df_viz_data` injected by the executing tool.
+        c.  Use the `df_viz_data` and `plot_params` (also injected) to construct the plot (e.g., `ax.set_title(plot_params.get('title', 'Default Title'))`).
+        d.  **ABSOLUTELY CRUCIAL: After creating the figure (`fig`), you MUST explicitly save it using the `plt.savefig()` command. The file path to save to will be provided to your code in a variable named `plot_path_to_save`. Your code MUST use this exact variable: `plt.savefig(plot_path_to_save)`.**
+        e.  After saving, include `plt.close(fig)` to release memory.
+        f.  The code should also aim to assign the created Matplotlib figure object to a variable named `figure_object` (e.g., `figure_object = fig`) so it can also be used for direct display by `st.pyplot()`.
+    *   **DO NOT include `plt.show()` in your generated code.**
+*   Prepare the specific data required by your Python code in the `data_for_visualization` part of your JSON.
+
+4.  **Construct Final JSON Output:**
+    *   Your final output MUST be a single JSON object.
+    *   **Success Case JSON Structure Example (Illustrative):**
+        ```json
+        {{
+            "visualization_type": "bar_chart",
+            "python_code_to_generate_figure": "import matplotlib.pyplot as plt\\nimport pandas as pd\\nimport io\\ndef generate_and_save_plot(df_viz_data, plot_params, plot_path_to_save):\\n  fig, ax = plt.subplots()\\n  # Example: ax.bar(df_viz_data['category_column'], df_viz_data['value_column'])\\n  ax.set_title(plot_params.get('title', 'Example Title'))\\n  ax.set_xlabel(plot_params.get('x_label', 'X Axis Example'))\\n  ax.set_ylabel(plot_params.get('y_label', 'Y Axis Example'))\\n  plt.tight_layout()\\n  plt.savefig(plot_path_to_save) # <<< ESSENTIAL LINE USING THE PROVIDED VARIABLE NAME\\n  plt.close(fig)\\n  return fig\\nfigure_object = generate_and_save_plot(df_viz_data, plot_params, plot_path_to_save) # Example of how figure_object is set",
+            "data_for_visualization": {{ ... }},
+            "plot_parameters": {{ ... }},
+            "description": "..."
+        }}
+    The tool will execute your code. If successful, it will return the `plot_path` (string) to the saved image. 
+    If it fails, it will return an error message (string).
 5.  **Output JSON:** Based on the tool's return:
     *   **If tool returns a path (Success):** Output JSON:
         `{{ "visualization_type": "your_chart_type", "plot_parameters": {{"title":"Chart Title", "x_label":"X-Axis Label", "y_label":"Y-Axis Label", "suggested_library":"matplotlib"}}, "description": "Brief description of the plot and any adaptations made.", "plot_path": "tool_returned_path_string" }}`
