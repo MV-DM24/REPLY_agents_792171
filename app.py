@@ -32,11 +32,10 @@ from tools.reporter_tool import reporter_tool
 AVAILABLE_DATA_PATHS = config.AVAILABLE_DATA_PATHS
 
 st.set_page_config(page_title="Fantastic Crew Analyzer", layout="wide")
-st.title(" fantastic Crew: Mavi, Ale, Eli's crew")
+st.title("Our Fantastic Crew: Mavi, Ale, Eli's crew")
 st.markdown("""
-Enter your query about the NoiPA portal user data.
-The crew will analyze the data, prepare a visualization blueprint if requested,
-and present the findings directly on this page.
+Cosa vuoi sapere degli user del portale NoiPA?
+La nostra crew analizzerà i dati e preparerà delle bellissime visualizzazioni per te!
 """)
 
 # Initialize session state for storing results if needed (optional, for more complex UIs)
@@ -47,7 +46,7 @@ if 'query_processed' not in st.session_state:
 
 # 2. Input user query
 with st.form("query_form"):
-    query = st.text_input("Enter your data analysis query:", key="user_query_input")
+    query = st.text_input("Cosa vuoi sapere?:", key="user_query_input")
     submit_button = st.form_submit_button("Let's goooo!")
 
 if submit_button and query:
@@ -137,4 +136,4 @@ if st.session_state.query_processed and st.session_state.crew_result:
     st.write(st.session_state.crew_result)
 
 st.markdown("---")
-st.markdown("Built with CrewAI & Streamlit.")
+st.markdown("Powered by girlz in STEM")
