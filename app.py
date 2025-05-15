@@ -27,6 +27,32 @@ from tools.analysis_tool import DataAnalysisTool
 from tools.visualization_tool import python_plotting_tool
 from tools.reporter_tool import reporter_tool
 
+#MEMORY attempts
+from crewai.memory.short_term.short_term_memory import ShortTermMemory
+from crewai.memory.storage.rag_storage import RAGStorage
+from crewai.memory.external.external_memory import ExternalMemory
+#from mem0 import MemoryClient
+
+#os.environ['MEM0_API_KEY'] = "mm-00"
+#client = MemoryClient()
+#os.environ.get("CREWAI_STORAGE_DIR")
+#os.environ['OPENAI_API_KEY']= <PAID_OPENAI_KEY>
+
+#embedder = {
+    #"provider":"openai",
+    #"model":"text-embedding-3-small",
+    #"dimension": 1536,
+#}
+
+
+#short_term_memory = ShortTermMemory(
+#    storage = RAGStorage(
+#        type = "short_term",
+#    ),
+#    embedder_config=embedder,
+#    path = "C:/Users/Utente/Desktop/projects/agents"
+#)
+
 
 
 AVAILABLE_DATA_PATHS = config.AVAILABLE_DATA_PATHS
