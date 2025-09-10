@@ -6,7 +6,7 @@
 
 ## Di Maio Maria Vittoria (792171)  maria.dimaio@studenti.luiss.it
 ## Montesi Maria Elisa (793891)  maria.montesi@studenti.luiss.it
-## Traversa Alessia (800131)  alessia.traversa@luiss.it
+## Traversa Alessia (800131)  alessia.traversa@studenti.luiss.it
 
 ## 1. Introduction - Multi-agent framework for dataset handling
 Our project aimed at creating a multi-agent framework to handle four datasets for the NoiPA portal. The guidelines specifically requested three agents: one to analyze data, one to create visualizations, and one to talk to users. Following an initial Exploratory Data Analysis (EDA) phase on the provided datasets, several key insights emerged that guided our development. Notably, we found that SPID (Sistema Pubblico di Identità Digitale) was the most predominantly used method for accessing the NoiPA portal across the user base. Concurrently, analysis of payment preferences indicated that direct crediting to a bank account ('carta/conto corrente') was the most common method for salary disbursement. Recognizing the specific context of the NoiPA portal, which serves Italian public administration employees, a crucial first design decision was made: we would have created agents that would have worked well with both English and Italian queries.
